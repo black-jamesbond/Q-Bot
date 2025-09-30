@@ -1,0 +1,586 @@
+/* Global smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Ensure background image is always present */
+html, body {
+  background: url('/Q-bot/images/backgrounds/background_login.png') no-repeat left center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Default background for all themes */
+#root {
+  background: url('/Q-bot/images/backgrounds/background_login.png') no-repeat left center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+/* Ensure background persists in light theme */
+[data-theme="light"] #root,
+#root[data-theme="light"],
+html[data-theme="light"] #root {
+  background: url('/Q-bot/images/backgrounds/background_login.png') no-repeat left center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+/* Ensure background persists in dark theme */
+[data-theme="dark"] #root,
+#root[data-theme="dark"],
+html[data-theme="dark"] #root {
+  background: url('/Q-bot/images/backgrounds/background_login.png') no-repeat left center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+/* Fallback for when theme attribute is not yet set */
+#root:not([data-theme]) {
+  background: url('/Q-bot/images/backgrounds/background_login.png') no-repeat left center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 324px;
+  padding: 1.62rem;
+  margin-right: 5rem;
+  min-height: 100vh;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+}
+
+.login-card {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  text-align: center;
+  width: 100%;
+  overflow: visible;
+}
+
+.logo-container {
+  margin-bottom: 10px;
+}
+
+.login-logo {
+  max-width: 120px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.login-card h1 {
+  color: silver;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-subtitle {
+  color: grey;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.login-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-group-last {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: silver;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: silver;
+  caret-color: #ff8c00;
+  caret-width: 5px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff8c00;
+  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
+}
+
+.form-group input.error {
+  border-color: #e74c3c;
+}
+
+.form-group input.error:focus {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.765rem;
+  margin-top: 0.25rem;
+}
+
+.general-error {
+  background: #fdf2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.login-button {
+  width: 100%;
+  background: black;
+  color: white;
+  border: none;
+  padding: 0.875rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button:hover:not(:disabled) {
+  background: #ff8c00;
+  color: black;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-footer {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.forgot-password {
+  background: none;
+  border: none;
+  color: black;
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #ff8c00;
+  text-decoration: underline;
+}
+
+.forgot-password:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Success Message */
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Development Notice */
+.dev-notice {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Error Boundary */
+.error-boundary {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+}
+
+.error-boundary-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.error-boundary h1 {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.error-details {
+  text-align: left;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.error-details ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.error-details li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.error-details a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.error-details a:hover {
+  text-decoration: underline;
+}
+
+.retry-button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.retry-button:hover {
+  background: #218838;
+}
+
+.error-technical {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.error-technical summary {
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.error-technical pre {
+  background: #f1f3f4;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+}
+
+.create-account-section {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.create-account-text {
+  color: grey;
+  font-size: 0.9rem;
+}
+
+.create-account-link {
+  color: silver;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.create-account-link:hover {
+  color: #ff8c00;
+  text-decoration: underline;
+}
+
+.divider {
+  margin: 1.5rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  right: 25%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.google-login-button {
+  width: 100%;
+  background: black;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.875rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.google-login-button:hover:not(:disabled) {
+  background: #ff8c00;
+  color: black;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+}
+
+.google-login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Password step animation */
+.password-step {
+  animation: slideDown 0.3s ease-out;
+  transform-origin: top;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
+  }
+}
+
+/* Responsive design for login component */
+@media (max-width: 768px) {
+  #root {
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+  }
+
+  .login-container {
+    margin-right: 0;
+    margin: 1rem;
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .login-card {
+    padding: 1rem;
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    margin: 0.5rem;
+    max-width: 95%;
+    padding: 0.5rem;
+  }
+
+  .login-card {
+    padding: 0.75rem;
+    max-height: none;
+  }
+
+  .login-logo {
+    max-width: 80px;
+  }
+
+  .login-card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .login-button, .google-login-button {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .divider {
+    margin: 1rem 0;
+  }
+}
+
+/* Height-based responsive adjustments */
+@media (max-height: 700px) {
+  .login-card {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .login-logo {
+    max-width: 80px;
+  }
+
+  .login-card h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .login-subtitle {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.6rem;
+  }
+
+  .divider {
+    margin: 1rem 0;
+  }
+}
+
+@media (max-height: 600px) {
+  .login-container {
+    padding: 0.5rem;
+  }
+
+  .login-card {
+    padding: 0.75rem;
+    max-height: none;
+  }
+
+  .login-logo {
+    max-width: 60px;
+  }
+
+  .login-card h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .login-subtitle {
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .login-button, .google-login-button {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .divider {
+    margin: 0.8rem 0;
+  }
+
+  .login-footer {
+    margin-top: 0.8rem;
+  }
+}

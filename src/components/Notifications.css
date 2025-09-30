@@ -1,0 +1,324 @@
+.notifications-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.notifications-panel {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.notifications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notifications-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.notifications-title h2 {
+  margin: 0;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.unread-badge {
+  background: #ff8c00;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.notifications-filters {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem 0;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.filter-btn.active {
+  background: #ff8c00;
+  border-color: #ff8c00;
+  color: white;
+}
+
+.notifications-actions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem 0;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.action-btn.danger {
+  border-color: rgba(255, 99, 99, 0.5);
+  color: rgba(255, 99, 99, 0.8);
+}
+
+.action-btn.danger:hover {
+  background: rgba(255, 99, 99, 0.1);
+  color: #ff6363;
+}
+
+.notifications-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.no-notifications {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.no-notifications svg {
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.notification-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.notification-item:last-child {
+  margin-bottom: 0;
+}
+
+.notification-item.unread {
+  background: rgba(255, 140, 0, 0.1);
+  border-color: rgba(255, 140, 0, 0.2);
+}
+
+.notification-item.read {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.notification-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.notification-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-item.info .notification-icon {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.notification-item.success .notification-icon {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.notification-item.warning .notification-icon {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.notification-item.error .notification-icon {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-header-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.notification-content h4 {
+  margin: 0;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.notification-time {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.notification-content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.notification-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.mark-read-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mark-read-btn:hover {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.delete-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+/* Dark theme support */
+.dark .notifications-panel {
+  background: rgba(30, 30, 30, 0.95);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .notifications-overlay {
+    padding: 0.5rem;
+  }
+  
+  .notifications-panel {
+    max-height: 90vh;
+  }
+  
+  .notifications-header {
+    padding: 1rem;
+  }
+  
+  .notifications-filters,
+  .notifications-actions {
+    padding: 0.75rem 1rem 0;
+  }
+  
+  .notifications-list {
+    padding: 0.75rem 1rem 1rem;
+  }
+  
+  .notification-item {
+    padding: 0.75rem;
+  }
+  
+  .notification-header-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .notification-time {
+    margin-left: 0;
+  }
+}
