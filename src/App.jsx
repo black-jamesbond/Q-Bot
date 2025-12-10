@@ -13,7 +13,7 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider>
         <AuthProvider>
-          <Router basename="./">
+          <Router basename="/">
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/register" element={<Register />} />
