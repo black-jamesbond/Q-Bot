@@ -13,7 +13,7 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider>
         <AuthProvider>
-          <Router basename="/Q-bot">
+          <Router basename="./">
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/register" element={<Register />} />
